@@ -1,0 +1,55 @@
+name: RunForMoney
+version: ${version}
+main: jp.ertl.rfm.RunForMoneyPlugin
+api-version: "1.21"
+authors: [ERTL]
+description: PaperMC向け「逃走中」再現プラグイン
+
+softdepend:
+  - WorldGuard
+  - Vault
+  - PlaceholderAPI
+  - Citizens
+  - DecentHolograms
+
+commands:
+  rfm:
+    description: RunForMoney管理コマンド
+    usage: /<command> [start|stop|pause|resume|reload|status]
+    permission: rfm.admin
+    aliases: [runformoney]
+  
+  surrender:
+    description: 自首して賞金を確定させる
+    usage: /<command>
+    permission: rfm.player.surrender
+
+permissions:
+  rfm.admin:
+    description: 管理者権限
+    default: op
+    children:
+      rfm.admin.start: true
+      rfm.admin.stop: true
+      rfm.admin.pause: true
+      rfm.admin.resume: true
+      rfm.admin.reload: true
+      rfm.admin.mission: true
+      rfm.admin.hunter: true
+      rfm.admin.bounty: true
+      rfm.admin.area: true
+  
+  rfm.player:
+    description: プレイヤー基本権限
+    default: true
+    children:
+      rfm.player.join: true
+      rfm.player.surrender: true
+      rfm.player.stats: true
+  
+  rfm.bypass:
+    description: 制限回避権限
+    default: op
+    children:
+      rfm.bypass.area: true
+      rfm.bypass.hunter: true

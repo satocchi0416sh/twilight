@@ -1,0 +1,30 @@
+# ハンター追加投入ミッション
+id: "hunter_release"
+name: "ハンター追加投入"
+description: "新たなハンターが投入される！生き残れ！"
+
+# トリガー設定（ゲーム開始から5分後）
+trigger:
+  type: "TIME"
+  value: "T+05:00"
+
+# 実行時間（秒）
+duration: 10
+
+# 繰り返し可能か
+repeatable: false
+
+# アクション設定
+actions:
+  # ハンター2体を追加
+  - type: "add_hunter"
+    count: 2
+  
+  # 全体通知
+  - type: "message"
+    text: "&c&l追加ハンター投入！"
+  
+  # BossBarを赤色に変更
+  - type: "bossbar"
+    color: "RED"
+    duration: 5

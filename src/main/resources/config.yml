@@ -1,0 +1,121 @@
+# RunForMoney Configuration
+
+# ゲーム基本設定
+game:
+  # ゲーム時間（秒）
+  duration: 600
+  
+  # 賞金設定
+  bounty-per-second: 100
+  max-bounty: 1000000
+  
+  # 使用するエリアID
+  area-id: "default"
+  
+  # 最小プレイヤー数
+  min-players: 2
+  
+  # 最大プレイヤー数
+  max-players: 20
+
+# ハンター設定
+hunter:
+  # 初期ハンター数
+  initial-count: 3
+  
+  # 視認設定
+  view-distance: 30.0
+  field-of-view: 70.0
+  
+  # 速度設定
+  patrol-speed: 1.0
+  chase-speed: 1.2
+  
+  # 確保半径
+  capture-radius: 1.5
+  
+  # スキャン間隔（ミリ秒）
+  scan-interval: 200
+  
+  # 見失い許容時間（秒）
+  lose-sight-timeout: 5
+
+# UI設定
+ui:
+  # スコアボード更新間隔（tick）
+  scoreboard-update-interval: 20
+  
+  # BossBar設定
+  bossbar:
+    show-time: true
+    show-mission: true
+    colors:
+      normal: YELLOW
+      warning: PINK
+      critical: RED
+      mission: PURPLE
+
+# ミッション設定
+missions:
+  # ミッションを有効化
+  enabled: true
+  
+  # デフォルトミッション時間（秒）
+  default-duration: 60
+  
+  # 同時アクティブミッション数上限
+  max-active: 3
+
+# 経済設定
+economy:
+  # Vault連携を有効化
+  enabled: true
+  
+  # 円からサーバー通貨への変換レート
+  conversion-rate: 0.01
+  
+  # 勝利ボーナス
+  win-bonus: 10000
+
+# データベース設定
+storage:
+  # データベースタイプ（現在はSQLiteのみ）
+  type: sqlite
+  
+  # 統計記録を有効化
+  track-stats: true
+
+# デバッグ設定
+debug:
+  # デバッグログを有効化
+  enabled: false
+  
+  # ハンター視認範囲を可視化
+  show-hunter-vision: false
+  
+  # ミッショントリガーログ
+  log-mission-triggers: false
+
+# メッセージ設定
+messages:
+  prefix: "&6[RunForMoney] &r"
+  
+  game:
+    start: "&aゲームが開始されました！"
+    end: "&eゲームが終了しました！"
+    join: "&a{player} がゲームに参加しました"
+    leave: "&c{player} がゲームから離脱しました"
+  
+  hunter:
+    spotted: "&cハンターに見つかった！"
+    lost: "&aハンターを撒いた！"
+    caught: "&c{player} が確保されました！"
+  
+  surrender:
+    success: "&e自首が成立しました。賞金: ¥{amount}"
+    denied: "&c自首できる状態ではありません"
+  
+  mission:
+    start: "&6MISSION: {name}"
+    complete: "&aMISSION COMPLETE: {name}"
+    failed: "&cMISSION FAILED: {name}"
